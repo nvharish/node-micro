@@ -1,0 +1,24 @@
+{
+  "name": "@node-micro/common",
+  "version": "1.0.0-alpha.0",
+  "description": "Shared utility functions for configuration management and common operations within the microservice framework.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvharish/node-micro.git",
+    "directory": "packages/common"
+  },
+  "author": "N V Harish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvharish/node-micro/issues"
+  },
+  "homepage": "https://github.com/nvharish/node-micro#readme",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "js-yaml": "^4.1.0",
+    "pino": "^9.9.1"
+  },
+  "devDependencies": {
+    "pino-pretty": "^13.1.1"
+  }
+}

@@ -1,0 +1,23 @@
+logging:
+  level: debug
+  redaction:
+    - req.headers.example-header
+    - res.headers.example-header
+accessControl:
+  mtls:
+    subjects:
+      - CN: example.com
+env:
+  port: 3001 # default port is 3000 if not set
+  timeout: 29000 # default timeout is 30000 ms if not set
+infra:
+  serviceName: hello-world-service
+  serviceVersion: 1.0.0
+  vault:
+    secrets:
+      - path: server-cert
+        keys:
+          - key: cert.pem
+            file: server-cert.pem
+          - key: key.pem
+            file: server-key.pem

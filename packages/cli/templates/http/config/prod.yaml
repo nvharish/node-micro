@@ -1,0 +1,19 @@
+logging:
+  level: debug
+  redaction:
+    - example-header
+accessControl:
+  mtls:
+    subjects:
+      - CN: example.com
+infra:
+  serviceName: hello-world-service
+  serviceVersion: 1.0.0
+  vault:
+    secrets:
+      - path: server-cert
+        keys:
+          - key: cert.pem
+            file: server-cert.pem
+          - key: key.pem
+            file: server-key.pem

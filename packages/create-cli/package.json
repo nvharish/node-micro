@@ -1,0 +1,25 @@
+{
+  "name": "@node-micro/create-cli",
+  "version": "1.0.0-alpha.0",
+  "description": "Alias package for @node-micro/cli to support `npm init @node-micro/cli`",
+  "bin": {
+    "node-micro-cli": "./bin/cli.js"
+  },
+  "keywords": [
+    "cli",
+    "scaffold",
+    "generator",
+    "microservice"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvharish/node-micro.git",
+    "directory": "packages/common"
+  },
+  "author": "N V Harish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvharish/node-micro/issues"
+  },
+  "homepage": "https://github.com/nvharish/node-micro#readme"
+}

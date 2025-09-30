@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package example;
+
+service ExampleService {
+  // Unary RPC
+  rpc UnaryHello (HelloRequest) returns (HelloReply);
+
+  // Server streaming RPC
+  rpc ServerStreamHello (HelloRequest) returns (stream HelloReply);
+
+  // Client streaming RPC
+  rpc ClientStreamHello (stream HelloRequest) returns (HelloReply);
+
+  // Bidirectional streaming RPC
+  rpc BidiHello (stream HelloRequest) returns (stream HelloReply);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}

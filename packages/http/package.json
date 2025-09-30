@@ -1,0 +1,30 @@
+{
+  "name": "@node-micro/http",
+  "version": "1.0.0-alpha.0",
+  "description": "HTTP transport layer for the microservice framework, enabling RESTful communication between services.",
+  "bin": {
+    "node-micro-http": "./bin/cli.js"
+  },
+  "keywords": [
+    "http",
+    "restful",
+    "rest",
+    "microservice"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvharish/node-micro.git",
+    "directory": "packages/http"
+  },
+  "author": "N V Harish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvharish/node-micro/issues"
+  },
+  "homepage": "https://github.com/nvharish/node-micro#readme",
+  "dependencies": {
+    "fastify": "^5.5.0",
+    "fastify-openapi-glue": "^4.9.2",
+    "@node-micro/common": "^1.0.0-alpha.0"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "node-micro",
+  "version": "1.0.0",
+  "description": "A modular microservice framework providing CLI, HTTP, and gRPC support for building scalable distributed systems.",
+  "directories": {
+    "example": "examples"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .js,.mjs",
+    "lint:fix": "eslint . --ext .js,.mjs --fix",
+    "audit": "npm audit --audit-level=low --production --json",
+    "audit:fix": "npm audit fix --audit-level=low --json",
+    "outdated": "npm outdated --json",
+    "outdated:fix": "npm update",
+    "test": "mocha",
+    "test:coverage": "nyc mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvharish/node-micro.git"
+  },
+  "author": "N V Harish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvharish/node-micro/issues"
+  },
+  "homepage": "https://github.com/nvharish/node-micro#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2"
+  }
+}

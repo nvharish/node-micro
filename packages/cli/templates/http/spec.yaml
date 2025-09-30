@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Pet API
+  version: 1.0.0
+paths:
+  /pets:
+    post:
+      summary: Create a new pet
+      operationId: createPets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, age]
+              properties:
+                name:
+                  type: string
+                age:
+                  type: integer
+      responses:
+        "201":
+          description: Pet created
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [id, name, age]
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  age:
+                    type: integer
+  /pets/{id}:
+    get:
+      summary: Get a pet by ID
+      operationId: getPetsById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Pet found
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [id, name, age]
+                additionalProperties: false
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  age:
+                    type: integer

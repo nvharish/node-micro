@@ -1,0 +1,29 @@
+{
+  "name": "@node-micro/grpc",
+  "version": "1.0.0-alpha.0",
+  "description": "gRPC transport layer for the microservice framework, enabling efficient RPC communication between services.",
+  "bin": {
+    "node-micro-grpc": "./bin/cli.js"
+  },
+  "keywords": [
+    "grpc",
+    "microservice",
+    "rpc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvharish/node-micro.git",
+    "directory": "packages/grpc"
+  },
+  "author": "N V Harish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvharish/node-micro/issues"
+  },
+  "homepage": "https://github.com/nvharish/node-micro#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.8.0",
+    "@node-micro/common": "^1.0.0-alpha.0"
+  }
+}

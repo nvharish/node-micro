@@ -1,0 +1,29 @@
+logging:
+  level: debug
+accessControl:
+  mtls:
+    subjects:
+      - CN: example.com
+grpc:
+  package: example
+  service: ExampleService
+  methods:
+    UnaryHello:
+      streaming: Unary
+    ServerStreamHello:
+      streaming: Server
+    ClientStreamHello:
+      streaming: Client
+    BidiHello:
+      streaming: Bidirectional
+infra:
+  serviceName: ad-service
+  serviceVersion: 1.0.0
+  vault:
+    secrets:
+      - path: server-cert
+        keys:
+          - key: cert.pem
+            file: server-cert.pem
+          - key: key.pem
+            file: server-key.pem
