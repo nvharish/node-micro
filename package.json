@@ -1,6 +1,6 @@
 {
   "name": "node-micro",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "A modular microservice framework providing CLI, HTTP, and gRPC support for building scalable distributed systems.",
   "directories": {
     "example": "examples"
