@@ -1,12 +1,20 @@
 {
   "name": "@node-micro/common",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Shared utility functions for configuration management and common operations within the microservice framework.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nvharish/node-micro.git",
     "directory": "packages/common"
   },
+  "keywords": [
+    "node-micro",
+    "microservice",
+    "framework",
+    "common",
+    "utilities",
+    "configuration"
+  ],
   "author": "N V Harish",
   "license": "MIT",
   "bugs": {

@@ -1,6 +1,6 @@
 {
   "name": "@node-micro/http",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "HTTP transport layer for the microservice framework, enabling RESTful communication between services.",
   "bin": {
     "node-micro-http": "./bin/cli.js"

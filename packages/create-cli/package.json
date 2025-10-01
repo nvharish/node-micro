@@ -1,6 +1,6 @@
 {
   "name": "@node-micro/create-cli",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Alias package for @node-micro/cli to support `npm init @node-micro/cli`",
   "bin": {
     "node-micro-cli": "./bin/cli.js"

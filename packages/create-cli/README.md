@@ -1,6 +1,6 @@
 # @node-micro/create-cli
 
-Alias package for [`@node-micro/cli`](../cli) to support `npm init @node-micro/cli`.
+Alias package for [`@node-micro/cli`](https://www.npmjs.com/package/@node-micro/cli) to support `npm init @node-micro/cli`.
 
 ## Purpose
 
@@ -22,7 +22,7 @@ This will invoke the CLI tool and guide you through the setup process.
 
 ## Related
 
-- [@node-micro/cli](../cli) — The main CLI tool for scaffolding microservices.
+- [@node-micro/cli](https://www.npmjs.com/package/@node-micro/cli) — The main CLI tool for scaffolding microservices.
 
 ## License
 
