@@ -1,6 +1,6 @@
 {
   "name": "@node-micro/cli",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "A command-line tool to scaffold and generate microservice projects with Node Micro, based on user input. Supports interactive prompts and project templates for rapid microservice development.",
   "bin": {
     "node-micro-cli": "./bin/cli.js"

@@ -1,6 +1,6 @@
 {
   "name": "@node-micro/grpc",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "gRPC transport layer for the microservice framework, enabling efficient RPC communication between services.",
   "bin": {
     "node-micro-grpc": "./bin/cli.js"

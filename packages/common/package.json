@@ -1,6 +1,6 @@
 {
   "name": "@node-micro/common",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Shared utility functions for configuration management and common operations within the microservice framework.",
   "repository": {
     "type": "git",
