@@ -8,17 +8,17 @@ class Logger {
         translateTime: 'yyyy-mm-dd HH:MM:ss Z',
         ignore: 'pid,hostname',
       },
-    }
+    };
 
     const redaction = Array.isArray(config.logging.redaction)
       ? config.logging.redaction.map((path) => `req.headers["${path.trim()}"]`)
       : [];
 
-    const redact = ['req.headers.authorization', ...redaction].filter((v, i, a) => a.indexOf(v) === i) // unique
+    const redact = ['req.headers.authorization', ...redaction].filter((v, i, a) => a.indexOf(v) === i); // unique
 
     if (config.logging.level === 'debug') {
-      transport.target = 'pino-pretty'
-      transport.colorize = true
+      transport.target = 'pino-pretty';
+      transport.colorize = true;
     }
 
     this.logger = pino({
@@ -31,14 +31,14 @@ class Logger {
           return {
             levelNum: number,
             level: label.toUpperCase(),
-          }
+          };
         },
         bindings(bindings) {
           return {
             pid: bindings.pid,
             hostname: bindings.hostname,
             name: `node-micro v${require('../package.json').version}`,
-          }
+          };
         },
         log(object) {
           return {
@@ -54,8 +54,8 @@ class Logger {
               'node-micro-pod-start-time': new Date().toISOString(),
             },
             ...object,
-          }
-        }
+          };
+        },
       },
     });
   }

@@ -1,6 +1,7 @@
-const openapiGlue = require('fastify-openapi-glue')
+const openapiGlue = require('fastify-openapi-glue');
 const fastify = require('fastify');
 const { NodeMicroServer, Utils, Logger, NodeMicroError } = require('@node-micro/common');
+
 const RestContext = require('./RestContext');
 
 class RestServer extends NodeMicroServer {
@@ -29,7 +30,7 @@ class RestServer extends NodeMicroServer {
 
       this.server.register(openapiGlue, {
         specification: this.spec,
-        operationResolver: (operationId) => this.resolveHandler(operationId)
+        operationResolver: (operationId) => this.resolveHandler(operationId),
       });
 
       const self = this;
@@ -47,7 +48,7 @@ class RestServer extends NodeMicroServer {
         reply.status(errResp.status);
         reply.headers = errResp.headers;
         reply.send(errResp.body);
-      })
+      });
 
       //initialize hooks
       this.initHooks();
@@ -66,11 +67,11 @@ class RestServer extends NodeMicroServer {
     const self = this;
     return async function (request, reply) {
       const ctx = new RestContext(request, self.config).getContext();
-      const res = await self.handlers[operationId](ctx)
-      reply.headers = res.headers
+      const res = await self.handlers[operationId](ctx);
+      reply.headers = res.headers;
       reply.status(res.status);
-      return res.body
-    }
+      return res.body;
+    };
   }
 
   initHooks() {
@@ -144,18 +145,18 @@ class RestServer extends NodeMicroServer {
     });
   }
 
-  defaultErrorHandler(error, ctx) {
+  defaultErrorHandler(error, _ctx) {
     return {
       status: error.statusCode ?? 500,
       message: error.message,
       cause: error?.cause,
-    }
+    };
   }
 
   listen(port, host) {
     this.server.listen({
       port: port || 3000,
-      host: host || '0.0.0.0'
+      host: host || '0.0.0.0',
     }, (error) => {
       if (error) {
         throw new NodeMicroError(error.message, error);

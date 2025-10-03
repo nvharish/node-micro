@@ -1,4 +1,4 @@
-const { NodeMicroContext } = require("@node-micro/common");
+const { NodeMicroContext } = require('@node-micro/common');
 
 class GrpcContext extends NodeMicroContext {
   constructor(call, method, config) {
@@ -9,7 +9,7 @@ class GrpcContext extends NodeMicroContext {
     this.ctx.req = {
       method,
       metadata: call.metadata ? { ...call.metadata.getMap() } : {},
-      message: call.request
+      message: call.request,
     };
   }
 }

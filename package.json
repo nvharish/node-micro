@@ -9,8 +9,8 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "eslint . --ext .js,.mjs",
-    "lint:fix": "eslint . --ext .js,.mjs --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "audit": "npm audit --audit-level=low --production --json",
     "audit:fix": "npm audit fix --audit-level=low --json",
     "outdated": "npm outdated --json",
@@ -32,10 +32,13 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "eslint": "^9.34.0",
-    "eslint-config-prettier": "^10.1.8",
+    "chai": "^6.2.0",
+    "eslint": "^9.36.0",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.4",
-    "prettier": "^3.6.2"
+    "eslint-plugin-n": "^17.23.1",
+    "mocha": "^11.7.4",
+    "nyc": "^17.1.0",
+    "prettier": "^3.6.2",
+    "sinon": "^21.0.0"
   }
 }

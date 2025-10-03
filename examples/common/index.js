@@ -1,11 +1,10 @@
-const { Config, Logger, NodeMicroContext, Utils } = require('@node-micro/common');
+const fs = require('fs');
+const yaml = require('js-yaml');
+const { Logger } = require('@node-micro/common');
 
-const config = new Config(process.cwd() + '/local.yaml').load();
-
-console.log(config);
-
-const logger = new Logger(config);
+const config = yaml.load(fs.readFileSync('local.yaml', 'utf8'));
+const logger = new Logger(config).load();
 
 logger.info({
-  message: 'hello world'
-}, 'hello-world')
+  message: 'hello world',
+}, 'hello-world');

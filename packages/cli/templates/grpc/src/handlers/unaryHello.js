@@ -7,8 +7,8 @@ async function unaryHello(ctx) {
   return {
     message: { message: `Hello ${name}!` },
     metadata: {}, //response metadata
-    trailers: {} //response trailers
-  }
+    trailers: {}, //response trailers
+  };
 }
 
-module.exports = { unaryHello }
+module.exports = { unaryHello };

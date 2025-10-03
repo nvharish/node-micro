@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 const yaml = require('js-yaml');
 
 function copyRecursive(src, dest) {

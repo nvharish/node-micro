@@ -1,6 +1,6 @@
 class Utils {
   static uuid() {
-    return require('crypto').randomUUID()
+    return require('crypto').randomUUID();
   }
 }
 

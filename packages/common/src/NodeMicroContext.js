@@ -3,9 +3,9 @@ class NodeMicroContext {
     this.ctx = {
       config: {
         accessControl: config.accessControl,
-        infra: config.infra
-      }
-    }
+        infra: config.infra,
+      },
+    };
   }
 
   getContext() {

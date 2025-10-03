@@ -1,6 +1,7 @@
-const grpc = require('@grpc/grpc-js')
-const protoLoader = require('@grpc/proto-loader')
+const grpc = require('@grpc/grpc-js');
+const protoLoader = require('@grpc/proto-loader');
 const { NodeMicroServer, NodeMicroError } = require('@node-micro/common');
+
 const GrpcContext = require('./GrpcContext');
 
 class GrpcServer extends NodeMicroServer {
@@ -12,18 +13,18 @@ class GrpcServer extends NodeMicroServer {
         longs: String,
         enums: String,
         defaults: true,
-        oneofs: true
-      })
+        oneofs: true,
+      });
       const grpcObj = grpc.loadPackageDefinition(pkgDef);
 
-      const impl = {}
+      const impl = {};
       Object.entries(this.config.grpc.methods).forEach(([method, opts]) => {
         const handlerKey = `get${opts.streaming}Handler`;
         if (!this[handlerKey]) {
           throw new NodeMicroError(`Invalid streaming option '${opts.streaming}'`);
         }
         impl[method] = this[handlerKey](method);
-      })
+      });
 
       this.server = new grpc.Server();
       this.server.addService(grpcObj[this.config.grpc.package][this.config.grpc.service].service, impl);
@@ -33,7 +34,7 @@ class GrpcServer extends NodeMicroServer {
         cause: error?.cause,
         status: error?.statusCode || grpc.status.INTERNAL,
         stack: error.stack,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       }, 'server-error');
       throw new NodeMicroError(error.message, error);
     }
@@ -46,7 +47,7 @@ class GrpcServer extends NodeMicroServer {
         message: error?.message || 'Internal Error',
         cause: error?.cause || 'Internal Error',
         details: error?.details || 'Internal Error',
-        stack: error?.stack
+        stack: error?.stack,
       };
     }
 
@@ -63,7 +64,7 @@ class GrpcServer extends NodeMicroServer {
       error,
       durationMs,
       code,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     }, event);
   }
 
@@ -83,7 +84,7 @@ class GrpcServer extends NodeMicroServer {
     if (!handlerKey) {
       throw new NodeMicroError(`Handler not found for method: ${method}`, {
         cause: `Handler for method: ${method} is not exported as function`,
-        details: `Handler for method: ${method} is not exported as function`
+        details: `Handler for method: ${method} is not exported as function`,
       }, grpc.status.INTERNAL);
     }
     const res = await this.handlers[handlerKey](ctx);
@@ -163,7 +164,7 @@ class GrpcServer extends NodeMicroServer {
         const duration = Date.now() - startTime;
         self.log('server-streaming-rpc-error', ctx, duration, res.code ?? grpc.status.INTERNAL, error);
       }
-    }
+    };
   }
 
   getClientHandler(method) {
@@ -177,7 +178,7 @@ class GrpcServer extends NodeMicroServer {
       call.on('data', function (data) {
         if (data) {
           messages.push(data);
-          self.logger[self.config.logging.level || info]({ request: data }, 'client-streaming-rpc-req-received');
+          self.logger[self.config.logging.level || 'info']({ request: data }, 'client-streaming-rpc-req-received');
         }
       });
 
@@ -208,7 +209,7 @@ class GrpcServer extends NodeMicroServer {
       call.on('error', (error) => {
         this.logger.error(error, 'client-streaming-rpc-error');
       });
-    }
+    };
   }
 
   getBidirectionalHandler(method) {
@@ -248,15 +249,15 @@ class GrpcServer extends NodeMicroServer {
         const duration = Date.now() - startTime;
         self.log('bidirectional-streaming-rpc-req-end', ctx, duration, res.code ?? grpc.status.OK);
       });
-    }
+    };
   }
 
-  defaultErrorHandler(error, ctx) {
+  defaultErrorHandler(error, _ctx) {
     return {
       code: error.code ?? grpc.status.INTERNAL,
       message: error.message ?? 'Internal Error',
       details: error.details ?? 'Internal Error',
-    }
+    };
   }
 
   listen(port, host) {
@@ -267,7 +268,7 @@ class GrpcServer extends NodeMicroServer {
           cause: error?.cause,
           statusCode: 500,
           stack: error?.stack,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
         }, 'server-error');
 
         throw new NodeMicroError(error.message, error);
@@ -276,7 +277,7 @@ class GrpcServer extends NodeMicroServer {
       this.logger.info({
         host: host || '0.0.0.0',
         port: port || 3000,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       }, 'server-started');
 
       this.logger.info(`Server is listening on port ${port}`);

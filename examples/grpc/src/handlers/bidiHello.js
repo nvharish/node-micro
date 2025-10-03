@@ -6,7 +6,7 @@ async function bidiHello(ctx) {
   return {
     message: { message },
     metadata: {}, //response metadata
-    trailers: {} //response trailers
+    trailers: {}, //response trailers
   };
 }
 
