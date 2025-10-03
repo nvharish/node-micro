@@ -1,16 +1,25 @@
 const pino = require('pino');
 const os = require('os');
+const path = require('path');
+const fs = require('fs');
 
 class Logger {
   constructor(config) {
+    const logDir = path.join(process.cwd(), 'logs');
+    if (!fs.existsSync(logDir)) {
+      fs.mkdirSync(logDir, { recursive: true });
+    }
+
     const transport = {
+      target: 'pino/file',
       options: {
         translateTime: 'yyyy-mm-dd HH:MM:ss Z',
         ignore: 'pid,hostname',
+        destination: path.join(logDir, 'app.log'),
       },
     }
 
-    const redaction = Array.isArray(config.logging.redaction)
+    const redaction = Array.isArray(config.logging?.redaction)
       ? config.logging.redaction.map((path) => `req.headers["${path.trim()}"]`)
       : [];
 
@@ -19,6 +28,7 @@ class Logger {
     if (config.logging.level === 'debug') {
       transport.target = 'pino-pretty'
       transport.colorize = true
+      delete transport.options.destination
     }
 
     this.logger = pino({
