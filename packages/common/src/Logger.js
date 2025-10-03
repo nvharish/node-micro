@@ -26,9 +26,9 @@ class Logger {
     const redact = ['req.headers.authorization', ...redaction].filter((v, i, a) => a.indexOf(v) === i); // unique
 
     if (config.logging.level === 'debug') {
-      transport.target = 'pino-pretty'
-      transport.colorize = true
-      delete transport.options.destination
+      transport.target = 'pino-pretty';
+      transport.colorize = true;
+      delete transport.options.destination;
     }
 
     this.logger = pino({
