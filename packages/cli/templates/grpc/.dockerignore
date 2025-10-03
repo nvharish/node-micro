@@ -1,0 +1,17 @@
+.devcontainer
+.github
+.vscode
+node_modules
+test
+.dockerignore
+.env.sample
+.eslintrc.js
+.gitignore
+.prettierignore
+.prettierrc
+Dockerfile
+.git
+dist
+coverage
+*.log
+npm-debug.log*
