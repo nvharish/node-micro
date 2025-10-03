@@ -1,17 +1,23 @@
 logging:
   level: debug
-  redaction:
-    - req.headers.example-header
-    - res.headers.example-header
 accessControl:
   mtls:
     subjects:
       - CN: example.com
-env:
-  port: 3001 # default port is 3000 if not set
-  timeout: 29000 # default timeout is 30000 ms if not set
+grpc:
+  package: example
+  service: ExampleService
+  methods:
+    UnaryHello:
+      streaming: Unary
+    ServerStreamHello:
+      streaming: Server
+    ClientStreamHello:
+      streaming: Client
+    BidiHello:
+      streaming: Bidirectional
 infra:
-  serviceName: hello-world-service
+  serviceName: ad-service
   serviceVersion: 1.0.0
   vault:
     secrets:

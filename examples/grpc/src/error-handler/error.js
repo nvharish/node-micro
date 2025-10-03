@@ -1,7 +1,7 @@
 // custom error handler
-module.exports = function (error, ctx) {
+module.exports = function (error, _ctx) {
   return {
     code: 13,
-    details: error.details || 'Internal Error'
-  }
-}
+    details: error.details || 'Internal Error',
+  };
+};
