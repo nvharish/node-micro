@@ -48,7 +48,7 @@ program.action(async () => {
   console.log(chalk.yellow('📂 Copying source files...'));
   copyRecursive(src, dest);
 
-  console.log(chalk.yellow('📂 Generating files...'));
+  console.log(chalk.yellow('📂 Generating config files...'));
   genConfigFiles(path.join(dest, 'config'), answers);
 
   // write package.json

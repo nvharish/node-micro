@@ -28,6 +28,7 @@ class Logger {
     if (config.logging.level === 'debug') {
       transport.target = 'pino-pretty';
       transport.colorize = true;
+      delete transport.options.destination;
     }
 
     this.logger = pino({
