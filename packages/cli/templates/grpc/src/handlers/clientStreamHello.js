@@ -6,8 +6,8 @@ async function clientStreamHello(ctx) {
   return {
     message: { message: `Hello ${message.map((v) => v.name).join(', ')}!` },
     metadata: {}, //response metadata
-    trailers: {} //response trailers
-  }
+    trailers: {}, //response trailers
+  };
 }
 
 module.exports = { clientStreamHello };

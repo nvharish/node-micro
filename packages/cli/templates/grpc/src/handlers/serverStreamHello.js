@@ -12,8 +12,8 @@ async function serverStreamHello(ctx) {
   return {
     message: messages,
     metadata: {}, //response metadata
-    trailers: {} //response trailers
-  }
+    trailers: {}, //response trailers
+  };
 }
 
 module.exports = { serverStreamHello };
